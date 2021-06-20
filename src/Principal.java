@@ -15,8 +15,10 @@ public class Principal {
     }
     public void menuInicio(){
         int opMenuInicio;
-        System.out.println("Bienvenido al juego DAMAS IPC1");
-        System.out.println("1. EntrarJuego 2.Salir");
+        System.out.println("-----BIENVENIDO AL JUEGO DE DAMAS----");
+        System.out.println("     1. Entrar al juego");
+        System.out.println("     2. Salir");
+        System.out.println("Ingrese una Opción");
         opMenuInicio=scanner.nextInt();
 
         if(opMenuInicio==1){
@@ -37,7 +39,11 @@ public class Principal {
         int banderaMenu=1;
 
         do{ 
-            System.out.println("1.Registrar Jugador 2.Estadisticas del Juego 3.Iniciar Partida 4.Salir");
+            System.out.println("----------MENU-----------");
+            System.out.println("    1.Registrar Jugador ");
+            System.out.println("    2. Estadísticas");
+            System.out.println("    3. Iniciar Partida");
+            System.out.println("    4. Salir");
             opMenuOpcionesJuego=scanner.nextInt();
 
             switch(opMenuOpcionesJuego){
@@ -62,13 +68,6 @@ public class Principal {
             break;    
         }
     }while(banderaMenu!=0);
-     }
-
-        
-    public void iniciarPartida(){
-        System.out.println("Pintando tablero...");
-        scanner.nextLine();
-    }
-    
+  }  
 }
 
