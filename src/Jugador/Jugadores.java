@@ -25,11 +25,13 @@ public void registrarJugadores(){
     contadorRegistro++;
 }
 public void mostrarJugadores(){
-    System.out.println("Los jugadores registrados son:");
-    for(int i=0;i<=contadorRegistro;i++){
-        System.out.println("id: "+idJugador[i]+ "nombre: "+nombreJugador[i]);
+    System.out.println("Los jugadores Disponibles son:");
+    for(int k=0;k<contadorRegistro;k++){
+        System.out.println("ID:"+idJugador[k]+ " Nombre:"+nombreJugador[k]);
     }
 }
+
+
 public void mostrarEstadisticas(){
     System.out.println("Estadisticas de jugadores:");
     for(int i=0;i<contadorRegistro;i++){

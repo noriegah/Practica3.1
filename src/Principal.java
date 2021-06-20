@@ -56,6 +56,7 @@ public class Principal {
             break;
 
             case 3:
+                insJugadores.mostrarJugadores();
                 t.EscogerJugadores();
                 t.PintarTablero();
             break;

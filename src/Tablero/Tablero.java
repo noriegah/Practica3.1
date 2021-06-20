@@ -45,8 +45,6 @@ public class Tablero {
     }
     
     public void EscogerJugadores(){
-        System.out.println("Los Jugadores disponible son:");
-        Jugadores.mostrarJugadores();
         System.out.println("Ingrese el ID del primer Jugador");
         jugador1=entrada.nextInt();
         System.out.println("Ingrese el ID del segundo Jugador");
