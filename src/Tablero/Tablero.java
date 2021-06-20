@@ -15,7 +15,7 @@ public class Tablero {
         inicializarTablero();
     }
 
-    private void inicializarTablero(){
+    private void inicializarTablero(){//solo sirve para primeros valores
         boolean esColorInicio=false;
         boolean esColorIteracion=false;
         for(int i=0; i<y;i++){
@@ -29,7 +29,7 @@ public class Tablero {
     }
 
 
-    public void PintarTablero(){
+    public void PintarTablero(){ //pinta el tablero sin fichas
         for(int i=0; i<y;i++){
             for(int k=0; k<3; k++){
                 for(int j=0; j<x; j++){
