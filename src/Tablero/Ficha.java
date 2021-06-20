@@ -13,4 +13,8 @@ public class Ficha {
     public Ficha(boolean esNegra){
         this.esNegra=esNegra;
     }
+    
+    public void CrearFichas(){
+        
+    }
 }
