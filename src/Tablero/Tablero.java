@@ -53,6 +53,7 @@ public class Tablero {
     
         public void PiedraPapeloTijera(){
         //1. piedra, 2. papel, 3 tijera
+        System.out.println("-----PIEDRA, PAPEL O TIJERA------");
         int bandera=0;
         do{
         int armaJugador1=((int)(Math.random()*3+1));

@@ -38,4 +38,6 @@ public void mostrarEstadisticas(){
         System.out.println("ID:"+idJugador[i]+ " Nombre:"+nombreJugador[i]+" Victorias:"+puntuacionVictorias[i]+" Derrotas: "+puntuacionDerrotas[i]);
     }
 }
+
+
  }

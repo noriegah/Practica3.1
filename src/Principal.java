@@ -58,6 +58,7 @@ public class Principal {
             case 3:
                 insJugadores.mostrarJugadores();
                 t.EscogerJugadores();
+                t.PiedraPapeloTijera();
                 t.PintarTablero();
             break;
 
