@@ -4,10 +4,14 @@
  * and open the template in the editor.
  */
 package Tablero;
+import java.util.*;
+import Jugador.*;
 public class Tablero {
-    
+    Scanner entrada=new Scanner(System.in);
+    Jugadores Jugadores=new Jugadores();
     private Celda[][] tablero;
     private final int x,y;
+    private int jugador1, jugador2;
     public Tablero(int x, int y){
         this.x=x;
         this.y=y;
@@ -39,5 +43,14 @@ public class Tablero {
             }
         }
     }
-
+    
+    public void EscogerJugadores(){
+        System.out.println("Los Jugadores disponible son:");
+        Jugadores.mostrarJugadores();
+        System.out.println("Ingrese el ID del primer Jugador");
+        jugador1=entrada.nextInt();
+        System.out.println("Ingrese el ID del segundo Jugador");
+        jugador2=entrada.nextInt();
+        System.out.println("1."+jugador1+" 2."+jugador2);
+    }
 }

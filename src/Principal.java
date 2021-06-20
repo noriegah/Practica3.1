@@ -56,6 +56,7 @@ public class Principal {
             break;
 
             case 3:
+                t.EscogerJugadores();
                 t.PintarTablero();
             break;
 
