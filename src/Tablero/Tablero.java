@@ -49,6 +49,38 @@ public class Tablero {
         jugador1=entrada.nextInt();
         System.out.println("Ingrese el ID del segundo Jugador");
         jugador2=entrada.nextInt();
-        System.out.println("1."+jugador1+" 2."+jugador2);
     }
+    
+        public void PiedraPapeloTijera(){
+        //1. piedra, 2. papel, 3 tijera
+        int bandera=0;
+        do{
+        int armaJugador1=((int)(Math.random()*3+1));
+        int armaJugador2=((int)(Math.random()*3+1));
+        if(armaJugador1==1 & armaJugador2==2){
+            System.out.println("Jugador 1=Piedra, Jugador 2=Papel");
+            System.out.println("El ganador es ID:"+jugador2);
+        }else if(armaJugador1==1 & armaJugador2==3){
+            System.out.println("Jugador 1=Piedra, Jugador 2=Tijera");
+            System.out.println("El ganador es ID:"+jugador1);
+        }else if(armaJugador1==2 & armaJugador2==1){
+            System.out.println("Jugador 1=Papel, Jugador 2=Piedra");
+            System.out.println("EL ganador es ID:"+jugador1);
+        }else if(armaJugador1==2 & armaJugador2==3){
+            System.out.println("Jugador 1=Papel, Jugador 2=Tijera");
+            System.out.println("El ganador es ID:"+jugador2);
+        }else if(armaJugador1==3 & armaJugador2==1){
+            System.out.println("Jugador 1=Tijera, Jugador 2=Piedra");
+            System.out.println("El ganador es ID:"+jugador2);
+        }else if(armaJugador1==3 & armaJugador2==2){
+            System.out.println("Jugador 1=Tijera, Jugador 2=Papel");
+            System.out.println("EL ganador es ID:"+jugador1);
+        }else{
+            System.out.println("Es un Empate");
+            bandera=1;
+        }
+        }while(bandera!=0);
+ 
+    }
+
 }
