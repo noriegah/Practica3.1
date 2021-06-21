@@ -12,9 +12,12 @@ public class Tablero {
     private Celda[][] tablero;
     private final int x,y;
     private int jugador1, jugador2;
+    private boolean juegoEnBlancas;
+    private Ficha[][] fichas;
     public Tablero(int x, int y){
         this.x=x;
         this.y=y;
+        fichas = new Ficha[2][(x*3)];
         tablero=new Celda[x][y];
         inicializarTablero();
     }
@@ -33,15 +36,30 @@ public class Tablero {
     }
 
 
-    public void PintarTablero(){ //pinta el tablero sin fichas
-        for(int i=0; i<y;i++){
-            for(int k=0; k<3; k++){
-                for(int j=0; j<x; j++){
-                System.out.print(tablero[j][i].PintarCelda(k));
-                }
-            System.out.println("");
-            }
+public void pintarTablero(){
+
+        for (int i = 0 ; i<x; i++){
+            System.out.print("  "+componerNumeroString(i)+"  ");
         }
+        System.out.println("");
+
+        for ( int i = 0; i < y; i++) {            
+            
+            for (int k = 0; k < 3; k++) {
+                for (int j = 0; j < x; j++) {
+                    System.out.print(tablero[j][i].PintarCelda(k));
+                    if((k ==1)&& ((j+1)==x))
+                        System.out.print(" "+i);
+                }
+                System.out.println("");
+            }
+
+            
+        }
+        for (int i = 0 ; i<x; i++){
+            System.out.print("  "+componerNumeroString(i)+"  ");
+        }
+        System.out.println("\n\n");
     }
     
     public void EscogerJugadores(){
@@ -83,5 +101,25 @@ public class Tablero {
         }while(bandera!=0);
  
     }
+        
+    private void inicializarFichas(int ini, int cant, boolean esBlanca, boolean debeAscender){
+        int cont = 1;
+        int tipoFicha=(esBlanca)?0:1;
+        for (int i = ini; i < cant; i++) {
+            for (int j = 0; j < x; j++) {
+                if (tablero[j][i].getEsColor() == !juegoEnBlancas){     
+                   // fichas[tipoFicha][(cont-1)]=new Ficha(!esBlanca, componerNumeroString(cont), new Coordenada(j,i), debeAscender,this);
+                    tablero[j][i].setFicha(fichas[tipoFicha][(cont-1)],j,i );
+                    cont++;
+                }
+            }
+        }
+    }
 
+    public String componerNumeroString(int num){
+        String res = ""+num;
+        if(num<10)
+            res = "0"+res;
+        return res;
+    }
 }

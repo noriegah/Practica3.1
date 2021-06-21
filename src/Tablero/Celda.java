@@ -38,4 +38,17 @@ public class Celda{
         }
         return res;
     }
+    
+    public boolean getEsColor(){
+        return this.esColor;
+    }
+
+    public void setFicha(){
+        this.ficha = null;
+    }
+    
+    public void setFicha(Ficha f, int x, int y){
+        this.ficha = f;
+        //this.ficha.setCoordenada(x, y);
+    }
 }
