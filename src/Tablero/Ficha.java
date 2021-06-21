@@ -5,13 +5,12 @@ package Tablero;
 public class Ficha {
     //private boolean esNegra;
     private boolean esNegra;
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    private char celda = '▄';
-    private String id;
     private boolean debeAscender;
-    private Tablero tablero;
+
+    // private int x,y;
     private Coordenada posicion;
+    
+    private Tablero tablero;
 
     public Ficha(boolean esNegra, String id, Coordenada posicion, boolean debeAscender, Tablero tablero) {
         this.debeAscender = debeAscender;
@@ -22,6 +21,10 @@ public class Ficha {
     }
 
 
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    private String id;
+    private char celda = '▄';
     
     public void CrearFichas(){
         
@@ -37,5 +40,6 @@ public class Ficha {
         this.posicion.setX(x);
         this.posicion.setY(y);
     }
+    
     
 }

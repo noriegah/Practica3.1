@@ -7,24 +7,25 @@ package Tablero;
 import java.util.*;
 import Jugador.*;
 public class Tablero {
-    Scanner entrada=new Scanner(System.in);
+        Scanner entrada=new Scanner(System.in);
     Jugadores Jugadores=new Jugadores();
     private Celda[][] tablero;
+    private Ficha[][] fichas;
     private final int x,y;
     private int jugador1, jugador2;
     private boolean juegoEnBlancas;
-    private Ficha[][] fichas;
+
     public Tablero(int x, int y){
         this.x=x;
         this.y=y;
-        fichas = new Ficha[2][(x*3)];
         tablero=new Celda[x][y];
+        fichas = new Ficha[2][(x*3)];
         inicializarTablero();
         inicializarFichas(0, 3, true, true);
         inicializarFichas(5, 8, false, false);
     }
 
-    private void inicializarTablero(){//solo sirve para primeros valores
+    private void inicializarTablero(){
         boolean esColorInicio=false;
         boolean esColorIteracion=false;
         for(int i=0; i<y;i++){
@@ -38,7 +39,7 @@ public class Tablero {
     }
 
 
-public void pintarTablero(){
+    public void pintarTablero(){
 
         for (int i = 0 ; i<x; i++){
             System.out.print("  "+componerNumeroString(i)+"  ");
@@ -49,7 +50,7 @@ public void pintarTablero(){
             
             for (int k = 0; k < 3; k++) {
                 for (int j = 0; j < x; j++) {
-                    System.out.print(tablero[j][i].PintarCelda(k));
+                    System.out.print(tablero[j][i].pintarCelda(k));
                     if((k ==1)&& ((j+1)==x))
                         System.out.print(" "+i);
                 }
@@ -69,79 +70,90 @@ public void pintarTablero(){
         jugador1=entrada.nextInt();
         System.out.println("Ingrese el ID del segundo Jugador");
         jugador2=entrada.nextInt();
-    }
-    
-        public void PiedraPapeloTijera(){
-        //1. piedra, 2. papel, 3 tijera
-        System.out.println("-----PIEDRA, PAPEL O TIJERA------");
-        int bandera=0;
-        do{
-        int armaJugador1=((int)(Math.random()*3+1));
-        int armaJugador2=((int)(Math.random()*3+1));
-        if(armaJugador1==1 & armaJugador2==2){
-            System.out.println("Jugador 1=Piedra, Jugador 2=Papel");
-            System.out.println("El ganador es ID:"+jugador2);
-        }else if(armaJugador1==1 & armaJugador2==3){
-            System.out.println("Jugador 1=Piedra, Jugador 2=Tijera");
-            System.out.println("El ganador es ID:"+jugador1);
-        }else if(armaJugador1==2 & armaJugador2==1){
-            System.out.println("Jugador 1=Papel, Jugador 2=Piedra");
-            System.out.println("EL ganador es ID:"+jugador1);
-        }else if(armaJugador1==2 & armaJugador2==3){
-            System.out.println("Jugador 1=Papel, Jugador 2=Tijera");
-            System.out.println("El ganador es ID:"+jugador2);
-        }else if(armaJugador1==3 & armaJugador2==1){
-            System.out.println("Jugador 1=Tijera, Jugador 2=Piedra");
-            System.out.println("El ganador es ID:"+jugador2);
-        }else if(armaJugador1==3 & armaJugador2==2){
-            System.out.println("Jugador 1=Tijera, Jugador 2=Papel");
-            System.out.println("EL ganador es ID:"+jugador1);
-        }else{
-            System.out.println("Es un Empate");
-            bandera=1;
-        }
-        }while(bandera!=0);
- 
-    }
+        System.out.println("1."+jugador1+" 2."+jugador2);
+    } 
         
-    private void inicializarFichas(int ini, int cant, boolean esBlanca, boolean debeAscender){
-        int cont = 1;
-        int tipoFicha=(esBlanca)?0:1;
-        for (int i = ini; i < cant; i++) {
-            for (int j = 0; j < x; j++) {
-                if (tablero[j][i].getEsColor() == !juegoEnBlancas){     
-                    fichas[tipoFicha][(cont-1)]=new Ficha(!esBlanca, componerNumeroString(cont), new Coordenada(j,i), debeAscender,this);
-                    tablero[j][i].setFicha(fichas[tipoFicha][(cont-1)],j,i );
-                    cont++;
+    public void PiedraPapeloTijera(){
+        
+        int bandera=0;
+        
+        //1. piedra 2.papel 3. tijera
+
+        do{
+
+            int opJugador1=((int)(Math.random()*3+1));
+            int opJugador2=((int)(Math.random()*3+1));
+             //pierdra vs papel
+
+        if(opJugador1==1 & opJugador2==2){
+            System.out.println("Jugador 1: piedra Jugador 2: papel ");
+            System.out.println("El jugador 2 es el ganador...");
+            //pierdra vs tijera
+        }else if(opJugador1==1 & opJugador2==3){
+            System.out.println("Jugador 1: piedra Jugador 2: tijera ");
+            System.out.println("El jugador 1 es el ganador...");
+            //papel vs pierdra
+        }else if(opJugador1==2 & opJugador2==1){
+            System.out.println("Jugador 1: papel Jugador 2: pierda ");
+            System.out.println("El jugador 1 es el ganador...");
+            //papel vs tijera
+        }else if(opJugador1==2 & opJugador2==3){
+            System.out.println("Jugador 1: papel Jugador 2: tijera ");
+            System.out.println("El jugador 2 es el ganador...");
+            //tijera vs pierdra
+        }else if(opJugador1==3 & opJugador2==1){
+            System.out.println("Jugador 1: tijera Jugador 2: piedra ");
+            System.out.println("El jugador 2 es el ganador...");
+            //tijera vs papel
+        }else if(opJugador1==3 & opJugador2==2){
+            System.out.println("Jugador 1: tijera Jugador 2: papel ");
+            System.out.println("El jugador 1 es el ganador...");
+        }else{
+            System.out.println("ES UN EMPATE...");
+            bandera=1;
+        }   
+        }while(bandera!=0);
+         }
+
+         private void inicializarFichas(int ini, int cant, boolean esBlanca, boolean debeAscender){
+            int cont = 1;
+            int tipoFicha=(esBlanca)?0:1;
+            for (int i = ini; i < cant; i++) {
+                for (int j = 0; j < x; j++) {
+                    if (tablero[j][i].getEsColor() == !juegoEnBlancas){     
+                        fichas[tipoFicha][(cont-1)]=new Ficha(!esBlanca, componerNumeroString(cont), new Coordenada(j,i), debeAscender,this);
+                        tablero[j][i].setFicha(fichas[tipoFicha][(cont-1)],j,i );
+                        cont++;
+                    }
                 }
+                
             }
         }
-    }
-    public Celda getCelda(Coordenada posicion){
-        Celda res = null;
-        if ((posicion.getX()>=0&&posicion.getX()<x)&&(posicion.getY()>=0&&posicion.getY()<y)){
-            res = tablero[posicion.getX()][posicion.getY()];
+        public Celda getCelda(Coordenada posicion){
+            Celda res = null;
+            if ((posicion.getX()>=0&&posicion.getX()<x)&&(posicion.getY()>=0&&posicion.getY()<y)){
+                res = tablero[posicion.getX()][posicion.getY()];
+            }
+            return res;
         }
-        return res;
-    }
+    
+        public Ficha getFicha(String id, boolean esBlanca){
+            int tipoFicha=(esBlanca)?0:1;
+            Ficha res = null;
+            int cont = 0;
+            while(cont<fichas[0].length && fichas[0][cont]!=null ){
+                if ((res = fichas[tipoFicha][cont]).getId().equalsIgnoreCase(id)){
+                    return res;
+                }
+                cont++;
+            }
+            return res;
+        }
 
-    public Ficha getFicha(String id, boolean esBlanca){
-        int tipoFicha=(esBlanca)?0:1;
-        Ficha res = null;
-        int cont = 0;
-        while(cont<fichas[0].length && fichas[0][cont]!=null ){
-            if ((res = fichas[tipoFicha][cont]).getId().equalsIgnoreCase(id)){
+            public String componerNumeroString(int num){
+                String res = ""+num;
+                if(num<10)
+                    res = "0"+res;
                 return res;
             }
-            cont++;
-        }
-        return res;
-    }
-
-    public String componerNumeroString(int num){
-        String res = ""+num;
-        if(num<10)
-            res = "0"+res;
-        return res;
-    }
 }
