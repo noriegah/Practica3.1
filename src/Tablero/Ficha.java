@@ -23,6 +23,9 @@ public class Ficha {
 
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+    public static final String ANSI_BLUE = "\u001B[34m";
     private String id;
     private char celda = '▄';
     
@@ -30,7 +33,7 @@ public class Ficha {
         
     }
     public String getCaracter() {
-        String res = (esNegra) ? "" + ANSI_RED + celda : "" + ANSI_YELLOW + celda;
+        String res = (esNegra) ? "" + ANSI_WHITE + celda : "" + ANSI_BLUE+ celda;
         return res;
     }
     public String getId() {
