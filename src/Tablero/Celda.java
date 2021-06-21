@@ -24,7 +24,7 @@ public class Celda{
         return res;
     }
     
-    private String PintarCelda(String color, int linea){
+    private String Imprimir(String color, int linea){
         String res = "";
         if(ficha!=null){
             if ((linea == 0)||(linea == 2))
@@ -36,4 +36,6 @@ public class Celda{
         }else{
             res =""+ color+celdaColor+celdaColor+celdaColor+celdaColor+celdaColor+celdaColor;
         }
+        return res;
+    }
 }
