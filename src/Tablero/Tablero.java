@@ -20,6 +20,8 @@ public class Tablero {
         fichas = new Ficha[2][(x*3)];
         tablero=new Celda[x][y];
         inicializarTablero();
+        inicializarFichas(0, 3, true, true);
+        inicializarFichas(5, 8, false, false);
     }
 
     private void inicializarTablero(){//solo sirve para primeros valores
@@ -108,12 +110,32 @@ public void pintarTablero(){
         for (int i = ini; i < cant; i++) {
             for (int j = 0; j < x; j++) {
                 if (tablero[j][i].getEsColor() == !juegoEnBlancas){     
-                   // fichas[tipoFicha][(cont-1)]=new Ficha(!esBlanca, componerNumeroString(cont), new Coordenada(j,i), debeAscender,this);
+                    fichas[tipoFicha][(cont-1)]=new Ficha(!esBlanca, componerNumeroString(cont), new Coordenada(j,i), debeAscender,this);
                     tablero[j][i].setFicha(fichas[tipoFicha][(cont-1)],j,i );
                     cont++;
                 }
             }
         }
+    }
+    public Celda getCelda(Coordenada posicion){
+        Celda res = null;
+        if ((posicion.getX()>=0&&posicion.getX()<x)&&(posicion.getY()>=0&&posicion.getY()<y)){
+            res = tablero[posicion.getX()][posicion.getY()];
+        }
+        return res;
+    }
+
+    public Ficha getFicha(String id, boolean esBlanca){
+        int tipoFicha=(esBlanca)?0:1;
+        Ficha res = null;
+        int cont = 0;
+        while(cont<fichas[0].length && fichas[0][cont]!=null ){
+            if ((res = fichas[tipoFicha][cont]).getId().equalsIgnoreCase(id)){
+                return res;
+            }
+            cont++;
+        }
+        return res;
     }
 
     public String componerNumeroString(int num){

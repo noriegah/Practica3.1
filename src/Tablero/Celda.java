@@ -49,6 +49,6 @@ public class Celda{
     
     public void setFicha(Ficha f, int x, int y){
         this.ficha = f;
-        //this.ficha.setCoordenada(x, y);
+        this.ficha.setCoordenada(x, y);
     }
 }
