@@ -1,4 +1,4 @@
-package src;
+package Menu;
 import java.util.*;
 
 import Jugador.*;
@@ -164,6 +164,7 @@ public class Principal {
                     fichaAMover = null;
                 }
             }
+        }
 }
 public static int readInt(String mensaje, boolean soloPositivo){
     Scanner entrada = new Scanner(System.in);

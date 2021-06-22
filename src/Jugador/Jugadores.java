@@ -34,8 +34,14 @@ public void mostrarJugadoresDisponibles(){
 }
 public void mostrarEstadisticas(){
     System.out.println("Estadisticas de jugadores:");
+    puntuacionDerrotas[1]=2;
+    puntuacionDerrotas[2]=1;
+    puntuacionDerrotas[3]=0;
+    puntuacionVictorias[1]=4;
+    puntuacionVictorias[2]=1;
+    puntuacionVictorias[3]=0;
     for(int i=0;i<contadorRegistro;i++){
-        System.out.println(" id: " +idJugador[i]+ " nombre: "+nombreJugador[i]+ " victorias: "+puntuacionVictorias[i]+ " derroteas: "+puntuacionDerrotas[i]);
+        System.out.println(" id: " +idJugador[i]+ " nombre: "+nombreJugador[i]+ " victorias: "+puntuacionVictorias[i]+ " derrotaas: "+puntuacionDerrotas[i]);
     }
 }
 
