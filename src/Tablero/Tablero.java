@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Tablero;
 import java.util.*;
 import Jugador.*;
 public class Tablero {
-        Scanner entrada=new Scanner(System.in);
+    Scanner entrada=new Scanner(System.in);
     Jugadores Jugadores=new Jugadores();
     private Celda[][] tablero;
     private Ficha[][] fichas;
@@ -73,7 +69,7 @@ public class Tablero {
         System.out.println("1."+jugador1+" 2."+jugador2);
     } 
         
-    public void PiedraPapeloTijera(){
+    public void DecidirJugador(){
         
         int bandera=0;
         
@@ -156,4 +152,49 @@ public class Tablero {
                     res = "0"+res;
                 return res;
             }
+            public boolean moverFicha(int posXIni, int posYIni, int posXFin, int posYFin){
+                boolean resultado = false;
+                if (tablero[posXIni][posYIni].ocupadaPorFicha()){
+                    if (!tablero[posXFin][posYFin].ocupadaPorFicha()){
+                        tablero[posXFin][posYFin].setFicha(tablero[posXIni][posYIni].getFicha(), posXFin,posYFin);
+                        resultado = true;
+                    }
+                }
+                return resultado;
+
+            } 
+            
+            
+
+            public boolean moverFicha(String id, boolean esBlanca, Coordenada posicionFinal){
+        
+                return moverFicha(this.getFicha(id, esBlanca), posicionFinal);
+            }
+        
+            public boolean moverFicha(Ficha ficha, Coordenada posicionFinal){
+        
+        
+                boolean respuesta = false;
+                Celda tmpCelda = null;
+                
+                if (ficha != null){
+                    Celda iniCelda = this.getCelda(ficha.getCoordenada());
+                    if (!(tmpCelda=tablero[posicionFinal.getX()][posicionFinal.getY()]).ocupadaPorFicha()){
+        
+                        //revisar si puede comer o no 
+        
+                        tmpCelda.setFicha(ficha, posicionFinal.getX(), posicionFinal.getY());
+                        iniCelda.setFicha(ficha);
+                        respuesta = true;
+                    }
+                    //comprobar
+                }
+        
+                return respuesta;
+            }
+
+            
 }
+
+         
+       

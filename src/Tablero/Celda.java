@@ -37,8 +37,16 @@ public class Celda{
             this.ficha.setCoordenada(x, y);
         }
         
-        public void setFicha(){
-            this.ficha = null;
+        public void setFicha(Ficha f){
+            this.ficha =f;
+        }
+        public Ficha getFicha(){
+            Ficha tmp = this.ficha;
+            this.ficha=null;
+            return tmp;
+        }
+        public boolean ocupadaPorFicha(){
+            return (ficha!=null);
         }
 
     public String imprimir(String color, int linea){

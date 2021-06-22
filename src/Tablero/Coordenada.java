@@ -1,4 +1,3 @@
-
 package Tablero;
 
 public class Coordenada {
@@ -25,7 +24,6 @@ public class Coordenada {
         this.y = y;
     }
 
-   
     @Override
     public String toString() {
         return "Coordenada [x=" + x + ", y=" + y + "]";

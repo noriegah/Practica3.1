@@ -18,6 +18,7 @@ Scanner scanner = new Scanner(System.in);
 
 
 public void registrarJugadores(){
+    System.out.println("---------INGRESO DE JUGADORES---------");
     System.out.println("Ingrese el id del jugador:");
     idJugador[contadorRegistro]=scanner.nextInt();
     System.out.println("Ingrese el nombre del jugador:");
@@ -33,7 +34,7 @@ public void mostrarJugadores(){
 
 
 public void mostrarEstadisticas(){
-    System.out.println("Estadisticas de jugadores:");
+    System.out.println("----------ESTADISTICAS DE JUGADORES-----------");
     for(int i=0;i<contadorRegistro;i++){
         System.out.println("ID:"+idJugador[i]+ " Nombre:"+nombreJugador[i]+" Victorias:"+puntuacionVictorias[i]+" Derrotas: "+puntuacionDerrotas[i]);
     }
